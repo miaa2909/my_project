@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Umair's Developer Portfolio</title>
+    <meta name="description" content="Welcome to Umair's developer portfolio. Explore my projects, skills, and contact me for collaboration opportunities.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        .project-image {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            cursor: pointer;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.9);
+        }
+        .modal-content {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+        }
+        .modal-content, .close {
+            animation-name: zoom;
+            animation-duration: 0.6s;
+        }
+        @keyframes zoom {
+            from {transform: scale(0)}
+            to {transform: scale(1)}
+        }
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #fff;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .close:hover,
+        .close:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .error {
+            color: red;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to My Website</h1>
+        <button class="hamburger" aria-label="Toggle menu" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+        </button>
+        <nav role="navigation">
+            <ul>
+                <li><a href="#about-me">About Me</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact-form">Contact Form</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section id="about-me">
+        <h2>About Me</h2>
+        <p>This is the about me section where you can introduce yourself.</p>
+    </section>
+    <section id="projects">
+        <h2>Projects</h2>
+        <label for="project-filter">Filter by category:</label>
+        <select id="project-filter" onchange="filterProjects()">
+            <option value="all">All</option>
+            <option value="web">Web Development</option>
+            <option value="mobile">Mobile Development</option>
+            <option value="data">Data Science</option>
+        </select>
+        <article data-category="web">
+            <figure>
+                <img src="project1.jpg" alt="Project 1" class="project-image" onclick="openModal(this)">
+                <figcaption>Project 1</figcaption>
+            </figure>
+            <h3>Project 1</h3>
+            <p>This is a placeholder description for Project 1.</p>
+        </article>
+        <article data-category="mobile">
+            <figure>
+                <img src="project2.jpg" alt="Project 2" class="project-image" onclick="openModal(this)">
+                <figcaption>Project 2</figcaption>
+            </figure>
+            <h3>Project 2</h3>
+            <p>This is a placeholder description for Project 2.</p>
+        </article>
+        <article data-category="data">
+            <figure>
+                <img src="project3.jpg" alt="Project 3" class="project-image" onclick="openModal(this)">
+                <figcaption>Project 3</figcaption>
+            </figure>
+            <h3>Project 3</h3>
+            <p>This is a placeholder description for Project 3.</p>
+        </article>
+    </section>
+    <!-- Modal Structure -->
+    <div id="myModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="img01">
+    </div>
+    <section id="skills">
+        <h2>Skills</h2>
+        <ul>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+            <li>React</li>
+            <li>Node.js</li>
+            <li>Python</li>
+            <li>SQL</li>
+            <li>Git</li>
+            <li>Responsive Design</li>
+            <li>Problem Solving</li>
+        </ul>
+    </section>
+    <section id="contact-form">
+        <h2>Contact Form</h2>
+        <form id="contactForm" action="#" method="post" onsubmit="return validateForm()">
+            <div>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                <span id="nameError" class="error"></span>
+            </div>
+            <div>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <span id="emailError" class="error"></span>
+            </div>
+            <div>
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+                <span id="messageError" class="error"></span>
+            </div>
+            <div>
+                <button type="submit">Send Message</button>
+            </div>
+        </form>
+    </section>
+    <footer>
+        <p>&copy; 2025 My Website</p>
+    </footer>
+   
+    <script src="script.js"></script> <!-- Link to script.js file -->
+</body>
+</html>

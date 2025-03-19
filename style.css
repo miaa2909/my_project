@@ -1,0 +1,168 @@
+/* Base styles */
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+    position: relative;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex; /* Use flexbox for layout */
+    justify-content: center; /* Center the navigation items */
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 10px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2em; /* Increase font size */
+}
+
+nav ul li a:focus {
+    outline: 2px solid #fff;
+    outline-offset: 2px;
+}
+
+nav ul li a:hover {
+    color: #ddd; /* Add hover effect */
+}
+
+section {
+    padding: 20px;
+}
+
+section.about-me {
+    text-align: justify; /* Align text to both left and right edges */
+    font-size: 1.1em; /* Increase font size */
+    line-height: 1.6; /* Increase line height for better readability */
+    margin: 20px 0; /* Add vertical margin */
+    padding: 20px; /* Add padding */
+    background-color: #f9f9f9; /* Light background color */
+    border-radius: 8px; /* Rounded corners */
+}
+
+section.projects {
+    display: flex; /* Use flexbox for layout */
+    flex-wrap: wrap; /* Allow wrapping of items */
+    justify-content: space-around; /* Space items evenly */
+    margin: 20px 0; /* Add vertical margin */
+}
+
+section.projects .project-card {
+    background-color: #fff; /* White background for cards */
+    border: 1px solid #ddd; /* Light border */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    margin: 10px; /* Margin around each card */
+    padding: 20px; /* Padding inside each card */
+    flex: 1 1 calc(33% - 40px); /* Flexible width, accounting for margin */
+    box-sizing: border-box; /* Include padding and border in element's total width and height */
+}
+
+section.skills ul {
+    list-style-type: none; /* Remove default list styling */
+    padding: 0;
+    margin: 0;
+}
+
+section.skills ul li {
+    font-size: 1.1em; /* Increase font size */
+    margin: 10px 0; /* Add vertical margin */
+    padding-left: 25px; /* Add padding to make space for icons */
+    position: relative; /* Position relative for pseudo-element */
+}
+
+section.skills ul li::before {
+    content: '✓'; /* Example icon, can be replaced with actual icons */
+    position: absolute; /* Position absolute to place it before text */
+    left: 0; /* Align to the left */
+    color: #2E8B57; /* Icon color */
+    font-size: 1.2em; /* Icon size */
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+}
+
+img, video {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Media queries */
+@media (max-width: 1024px) {
+    section.projects .project-card {
+        flex: 1 1 calc(50% - 40px); /* Adjust width for medium screens */
+    }
+}
+
+@media (max-width: 768px) {
+    nav ul {
+        display: none;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav ul li {
+        display: block;
+        margin: 10px 0;
+    }
+
+    .hamburger {
+        display: block;
+        cursor: pointer;
+    }
+
+    section.projects .project-card {
+        flex: 1 1 calc(50% - 40px); /* Adjust width for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.2em;
+    }
+
+    nav ul li {
+        margin: 5px 0;
+    }
+
+    section {
+        padding: 5px;
+    }
+
+    section.projects .project-card {
+        flex: 1 1 100%; /* Full width for very small screens */
+    }
+}
+
+.hamburger {
+    display: none;
+    font-size: 30px;
+    color: white;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.hamburger:focus {
+    outline: 2px solid #fff;
+    outline-offset: 2px;
+}
